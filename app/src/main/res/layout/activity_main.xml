@@ -1,0 +1,35 @@
+<!-- activity_main.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Total Expense Section -->
+    <TextView
+        android:id="@+id/totalExpenseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Expense: $0.00"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <!-- RecyclerView to show the list of expenses -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="end|bottom"
+        android:contentDescription="Add Expense"/>
+
+</LinearLayout>

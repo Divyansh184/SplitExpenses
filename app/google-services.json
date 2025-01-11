@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1063787847294",
+    "project_id": "splitexpenses-d89b8",
+    "storage_bucket": "splitexpenses-d89b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063787847294:android:b6fd51d2c30d8c49df822f",
+        "android_client_info": {
+          "package_name": "com.example.splitexpenses"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtC852lygnIgGQYuVNk8TvnuTtC7ZxeRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

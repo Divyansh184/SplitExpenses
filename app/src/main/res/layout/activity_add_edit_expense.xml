@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEditExpenseActivity">
+
+    <!-- Container to Center everything -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/centerContainer"
+        android:layout_width="392dp"
+        android:layout_height="351dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Amount Label -->
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Amount EditText -->
+        <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Enter amount"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountLabel"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <!-- Description Label -->
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Description:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/amountEditText" />
+
+        <!-- Description EditText -->
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Enter description"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionLabel"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/black"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/saveButton"
+            app:layout_constraintWidth_percent="0.8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
