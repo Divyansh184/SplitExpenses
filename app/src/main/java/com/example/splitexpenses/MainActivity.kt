@@ -1,5 +1,6 @@
 package com.example.splitexpenses
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -60,19 +61,22 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.logout -> {
-                // Log out the user
                 FirebaseAuth.getInstance().signOut()
                 Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
-
-                // Redirect to the login activity
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
-                finish() // Close the MainActivity
+                finish()
+                true
+            }
+            R.id.split_with_friends -> {
+                val intent = Intent(this, SplitWithFriendsActivity::class.java)
+                startActivity(intent) // Start the SplitWithFriendsActivity
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
     private fun loadExpenses() {
         val user = auth.currentUser

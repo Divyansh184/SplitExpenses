@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AuthActivity : AppCompatActivity() {
 
@@ -83,15 +84,32 @@ class AuthActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Successful signup
-                    Toast.makeText(this, "Signup successful", Toast.LENGTH_SHORT).show()
-                    // Navigate to the main screen (dashboard)
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                    val user = auth.currentUser
+                    if (user != null) {
+                        val userId = user.uid
+                        val db = FirebaseFirestore.getInstance()
+
+                        // Store user details in Firestore
+                        val userMap = hashMapOf(
+                            "email" to email,
+                            "uid" to userId
+                        )
+
+                        db.collection("users").document(userId).set(userMap)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Signup successful", Toast.LENGTH_SHORT).show()
+                                // Navigate to MainActivity
+                                startActivity(Intent(this, MainActivity::class.java))
+                                finish()
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(this, "Failed to store user data: ${it.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
                 } else {
-                    // Failed signup
                     Toast.makeText(this, "Signup failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
 }

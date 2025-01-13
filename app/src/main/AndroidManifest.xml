@@ -15,6 +15,21 @@
         android:theme="@style/Theme.SplitExpenses"
         tools:targetApi="31">
         <activity
+            android:name=".SelectUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpenseWithFriendsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplitWithFriendsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddEditExpenseActivity"
             android:exported="false" />
         <activity
@@ -28,7 +43,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
