@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 class SplitWithFriendsActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -36,8 +35,10 @@ class SplitWithFriendsActivity : AppCompatActivity() {
 
     private fun loadSplits() {
         val user = auth.currentUser
+
         if (user != null) {
             val userId = user.uid
+            val userEmail = user.email // Get current user's email
             val splitsRef = db.collection("users").document(userId).collection("splits")
 
             splitsRef.get()
@@ -51,7 +52,8 @@ class SplitWithFriendsActivity : AppCompatActivity() {
                             split.copy(id = document.id)
                         }.toMutableList()
 
-                        adapter = SplitAdapter(splits)
+                        // Pass the user's email to the SplitAdapter
+                        adapter = SplitAdapter(splits, userEmail ?: "")
                         recyclerView.adapter = adapter
                     }
                 }
@@ -61,5 +63,9 @@ class SplitWithFriendsActivity : AppCompatActivity() {
 
         }
     }
-}
 
+    override fun onResume() {
+        super.onResume()
+        loadSplits()  // Call the method to fetch the updated data from Firestore
+    }
+}
