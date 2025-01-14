@@ -1,5 +1,4 @@
 package com.example.splitexpenses
-
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -57,7 +56,8 @@ class SplitAdapter(private val splits: List<Split>, private val currentUserEmail
         val splitNameTextView: TextView = itemView.findViewById(R.id.splitNameTextView)
         val amountTextView: TextView = itemView.findViewById(R.id.amountTextView)
 
-        // Bind data with correct logic
+        
+        
         fun bind(split: Split, currentUserEmail: String) {
             if (split.lentBy == currentUserEmail) {
                 // If the current user is the lender
